@@ -1,0 +1,129 @@
+1) REST
+===============
+REST referes to a group of Software Architecture Design Constraints that bring about efficient, reliable, and scalable systems.
+
+So REST isn't a specific technology, but rather a data architecture and design methodology that produces predictable and
+consistent outputs and behaviors by receiving a set of standard methods called verbs and returning standardized structured 
+data, typically JSON or XML, called the resource. Representational State Transfer is a literal description of what's 
+happening. We transition between representations of states and these representations are transformed back and forth between 
+the application and the server.
+
+
+2.0) The Six Constraints of REST
+===============================
+
+2.1) Client-server architecture
+===============================
+Its provides a complete separation between content and presentation and interaction. 
+
+The client manages user interface concerns while the server manage data storage concerns. 
+In return, we get a highly portable system where one rest servivce can serve many different clients and interfaces 
+without knowing or caring what those interfaces look like or what they are doing. 
+
+2.2) Statelessness
+==================
+No client context or information 'áka' "state", can be stored on the server between requests.
+
+Client is responsible for keeping track of its own session state, and all requests sent from client must be self contained 
+and complete.
+
+If the client session state is relevant, it must be sent along with a request, and if the server needs to store that state, 
+it must pass it on to a database or similar service for a specific time.
+Example: As an example, the server can be asked to pass on an authentication token for a set period of time to allow 
+authenticated requests.
+
+2.3) Cacheability
+==================
+Caching, as in storing responses for a set period of time is an integral part of web architecture and performance optimization.
+All rest responses must be clearly marked as cacheable or non-cacheable to ensure caching works as expected on the client end.
+This means caching responses that won't or are unlikely to change, caching rarely or periodically-changed responses for 
+reasonable periods of time, and blocking caching for constantly changing responses.
+
+
+2.4) Layered system
+===================
+The system must be designed as layerd, so the client can't know and doesn't care whether it's connected directly to the server or to an intermediary like a mirror or a CDN. This ensures scalability and also helps with security.
+
+2.5) Code on demand
+====================
+Servers are allowed to transfer executable code in the form of client side JavaScript and compiled components to the client 
+to extend and customize functionality.
+This is a less common use of REST, but it must be supported for a service to be RESTful.
+
+2.6) Uniform interface
+======================
+Uniform interface, which breaks down into four more constraints. So it's really not a single constraint but just four more 
+constraints. 
+
+2.6.1) Resource identification in request
+=========================================
+A uniform interface must use resource identification in requests. In REST systems on the web, a URI is used to send a 
+request, and that URI will specify what resource it is looking for. So a URI like authors slash Morton slash bio is 
+requesting my bio as a resource.
+
+The key here is the resource is the data sitting on the server. What REST for terms is a representation of that resource 
+which can have a different format from the server resource. So while the resource data may be stored as a table in my SQL, 
+the returned representation may be JSON or XML or even HTML.
+
+2.6.2) Resource manipulation through representations
+====================================================
+A uniform interface must allow resource manipulation through representations. This means once a client has a representation 
+of a resource, it can also modify or delete that resource.
+In other words, the client given the right level of access can control what's stored on the server. 
+
+2.6.3) Self-descriptive messages
+=================================
+A uniform interface must issue self-descriptive messages. This goes for both sending and receiving REST data. Each 
+representation must describe its own data format. So if you're receiving JSON, the response message will have its media type 
+set to JSON. Without this information, the data cannot be reliably parsed. 
+
+2.6.4) Hypermedia as the engine of application state
+=====================================================
+A uniform interface must use hypermedia as the engine of application state.
+This is a complicated way of saying once the client has access to a REST resource, it should be able to discover all 
+available resources and methods through the hyperlinks provided. Request a page resource and along with a page contents, 
+the return representation should include hyperlinks to all resources and methods available. In other words, the REST service 
+describes its own use with every return resource. If and only if a web-base API meets these six constraints, it can be 
+considered a restful API.
+
+3.0) Difference between "REST API"and "RESTful API"
+===================================================
+REST API: It can use any protocol like: HTTP, HTTPS, FTP, SMTP, or others to access resourcess. REST and HTTP are not 
+linked; they're just a convenient pairing.
+
+RESTful API: Its a special cases of REST API, where it only use HTTP protocol over web to give us access to a web resource.
+i.e RETful API not uses another protocol to acees web resources.
+
+4.0) Who interacts with REST API
+================================
+Communication with the REST API is handled by the client, which can be anything, really. A website, an app, even an internet 
+of things device. The REST API does not care. It just receives requests, processes data, and sends responses, and all that 
+data is consumed by the REST client.
+
+
+5.0) Tools to see REST API in action
+=====================================
+To make the response from a REST-API readable, we need a REST client assigned for this purpose. There's several such clients 
+available, including Postman and Insomnia, and if you have a favorite code editor, there's a good chance there's a REST 
+client extension or package for that editor as well.
+
+
+6.0) REST Request
+==================
+REST requests in detail: how they're put together, what the different pieces are, and how to use them.
+
+6.1) Anatomy of REST request
+=============================
+It has two main parts:
+
+6.1.1) Methods
+===============
+The method is one of the standard HTTP operators, get, post, put, patch, delete, options, and head.
+
+6.1.2) URI
+==========
+URI points to the resource we want it to interact it.
+
+
+
+
